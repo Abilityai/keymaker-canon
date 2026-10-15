@@ -37,7 +37,7 @@ work:
     description: Transcripts turned into decisions, action items and a client summary
     agent: meeting-notes-bot
     person: delivery manager
-    playbooks: [summarize, process-inbox]
+    playbooks: [summarize]        # the public template; an install may add process-inbox - read the catalog
     writes: notes/*.md
 
   - kind: lessons-and-judgment
