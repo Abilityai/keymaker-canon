@@ -1,0 +1,56 @@
+schema_version: 1
+owner: steward
+updated: '2026-10-15'
+verified: '2026-10-15'
+review_by: '2026-11-14'
+file_status: canonical
+source: 'the principal, by pull request (2026-10-15); shape: one entry per business action, roles never people'
+notes: |
+  Who may decide what alone, up to which limit, and who decides above it. `decides_alone` and
+  `above_limit` are role ids from roles/; who fills a role is a Trinity assignment and
+  domains/org-context/ORGANISATION.md. An approval raised to nobody, or without an expiry, is refused
+  by convention. `escalate_now` lists the classes that interrupt a person at once; everything else
+  waits for the morning brief.
+approvals:
+- action: discount on a Pilot or a Build
+  decides_alone: sales-rep
+  limit: 10% of the list price, as an invoice credit, never a rate cut
+  above_limit: principal
+  expires_after_hours: 72
+- action: any discount on the Automation audit
+  decides_alone: null
+  limit: none
+  above_limit: principal
+  expires_after_hours: 72
+- action: a new price, or a change to pricing.md
+  decides_alone: null
+  limit: none
+  above_limit: principal
+  expires_after_hours: 72
+- action: send anything to a client (email, proposal, contract)
+  decides_alone: sales-rep
+  limit: the deal owner presses send; agents only draft
+  above_limit: principal
+  expires_after_hours: 72
+- action: change a client's state or an implementation's state
+  decides_alone: delivery-manager
+  limit: with a recorded reason
+  above_limit: principal
+  expires_after_hours: 72
+- action: publish anything under the agency's name
+  decides_alone: marketing-lead
+  limit: the lead posts it; agents only write
+  above_limit: principal
+  expires_after_hours: 72
+- action: graduate a note in the brain (ai-inferred to endorsed)
+  decides_alone: principal
+  limit: none
+  above_limit: principal
+  expires_after_hours: 168
+- action: grant an agent permission to call another agent
+  decides_alone: principal
+  limit: on the Access tab; no agent can grant an edge
+  above_limit: principal
+  expires_after_hours: 168
+escalate_now: [money above a rep limit, a client at risk of leaving, anything irreversible, a security question]
+escalate_rule: one ask per decision, with the options and a deadline; then the agent ends its turn and waits

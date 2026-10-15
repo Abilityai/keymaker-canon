@@ -1,0 +1,73 @@
+# canon-lint configuration — read by tools/canon-lint/canon_lint.py
+# This file is live fleet configuration: change severities via PR, like CONVENTIONS.md.
+#
+# Severities: fail (blocks publish + CI red) · warn (reported, never blocks) · off
+# Grammar: this file uses the restricted flat grammar the linter parses itself —
+# full-line comments only, no nesting beyond the rules: map.
+#
+# Rules:
+#   layout            unexpected top-level entries in an agents/<name>/ folder
+#   envelope          profile.md + docs/*.md front matter parses, required keys present
+#   fact-schema       facts.yaml present, parses, entries complete, dates valid
+#   key-grammar       keys are lowercase dotted subject.relation
+#   one-home-per-key  a non-superseded key lives in exactly one folder — the drift killer
+#   ownership         owner equals the enclosing folder name
+#   staleness         canonical items past their review_by date
+#   source-resolution local fact sources (docs/, files/) must exist
+#   reachability      canonical docs indexed in profile.md, drafts unlinked, no orphan files
+#   project-envelope  projects/<slug>/project.md present with the charter envelope (owner, status,
+#                     epic owner/repo#N, updated, review_by, tldr); decisions.md ledger envelope
+#
+# The top level — domains.yaml, roles/, objectives/ — the files the fleet decides on (R44).
+# These seven land at `warn` because the roles and objectives are still `file_status: draft`
+# pending the per-objective ruling (R42); flip them to `fail` once the set is ruled. The one
+# exception ships `fail` already: a metric name outside the registry's class can never be
+# declared or recorded, draft or not.
+#   top-level-layout       expected root entries only; domains/<id>/ matches a domains.yaml id
+#   domain-schema          domains.yaml envelope + one complete, resolvable entry per domain
+#   role-schema            roles/<id>.yaml: id == filename, vocabularies, references resolve
+#   objective-schema       objectives/<id>.yaml: id == filename, role owner, metric entries
+#   objective-metric-name  a metric name must be declarable AND recordable (registry class)
+#   role-binding           every agent named in the top level is one this canon knows
+#   guard-schema           guard_metrics: the codified shape (hold + target + served_by)
+#   consumer-anchor        every consumer of a MIRROR.yaml-anchored domain carries
+#                          consumes.<domain>.<agent>[-<surface>] citing the mirror's source_sha;
+#                          else a behind-list. warn until the stamp is ruled (ent#687).
+#                          A domain is anchored by a MIRROR.yaml above its path, or - canon-native -
+#                          by its owner's `<domain-id>.anchor` fact (`<repo>@<sha> ...`).
+#   orphan-subject         a fact subject published by 2+ folders that no domain's `key_prefixes`
+#                          and no `local_key_prefixes` claims; or a key under a domain's prefix
+#                          homed outside the domain's owner. warn until the map carries prefixes
+#                          for every domain, then fail - an unowned shared subject is how the
+#                          fleet ends up with thirteen private versions of one fact.
+#   retired-phrase         a literal phrase retired by a change notice
+#                          (agents/<hub>/files/propagation/*.yaml retired_phrases) still present in
+#                          a folder's profile, docs or fact values. The stamp proves the rebuild
+#                          ran; this proves the text changed. warn until the current hits are cleared.
+#   unanchored-domain      a `propagation: copied` domain with no anchor (no MIRROR.yaml above its
+#                          path, no `<domain-id>.anchor` fact with its owner) - consumers keep a
+#                          copy and nobody can tell them it moved. The owner's next /canon-publish
+#                          seeds the anchor; warn until every copied domain carries one.
+version: 1
+rules:
+  layout: warn
+  envelope: fail
+  fact-schema: fail
+  key-grammar: fail
+  one-home-per-key: fail
+  ownership: fail
+  staleness: fail
+  source-resolution: fail
+  reachability: fail
+  project-envelope: fail
+  top-level-layout: warn
+  domain-schema: warn
+  role-schema: warn
+  objective-schema: warn
+  objective-metric-name: fail
+  role-binding: warn
+  guard-schema: warn
+  consumer-anchor: warn
+  orphan-subject: warn
+  retired-phrase: warn
+  unanchored-domain: warn

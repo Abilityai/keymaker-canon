@@ -1,0 +1,34 @@
+schema_version: 1
+owner: orchestrator
+updated: '2026-10-15'
+verified: '2026-10-15'
+review_by: '2026-11-14'
+file_status: canonical
+source: 'the Keymaker agency - roles written by the principal, stewarded by the orchestrator (2026-10-15)'
+id: delivery-manager
+family: delivery
+title: Delivery manager - owns clients after signature
+status: active
+defaults_to: principal
+mission: 'Every client has a health score and a next step; a stall is said before the client notices.'
+responsibilities:
+- id: client-state
+  statement: 'A client or implementation changes state only with a reason, by a person.'
+  decision_rights: decides
+  human: 'Decides state changes; talks to clients.'
+  agent: 'delivery-agent records, scores and flags; never contacts a client.'
+  metrics: []
+  consulted: [sales-rep]
+  informed: [principal]
+- id: lessons-up
+  statement: 'A post-mortem goes to the brain as a lesson.'
+  decision_rights: executes
+  human: 'Writes the post-mortem.'
+  agent: 'delivery-agent sends it to the brain with /extract-insights.'
+  metrics: []
+  consulted: []
+  informed: [principal]
+inputs: [deals, call-notes, lessons-and-judgment]
+outputs: [client-projects]
+capabilities: [delivery-agent, meeting-notes-bot]
+credentials: []

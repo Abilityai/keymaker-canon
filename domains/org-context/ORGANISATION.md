@@ -1,0 +1,29 @@
+---
+owner: steward
+status: canonical
+updated: 2026-10-15
+verified: 2026-10-15
+review_by: 2026-11-14
+tldr: "Who is in the Keymaker agency, which role each person fills, and which agents serve them - plain words, never the thing the fleet decides on"
+source: "the principal, 2026-10-15; the Trinity assignment is the record, this page is the explanation"
+---
+
+# The Keymaker agency - people, roles, agents
+
+Keymaker is a fictional automation agency built in public during the Agent-Native Agency
+workshop. The people below are the workshop's own operators, named so that every approval in
+`domains/approvals/approvals.yaml` resolves to someone who can answer. The roles are the files in
+`roles/`; who fills them is recorded in Trinity (the Access tab of each agent) and restated here
+so a person can read it.
+
+| Role (`roles/`) | Filled by | Agents that serve the seat |
+|---|---|---|
+| `principal` | Eugene Vyborov (eugene@ability.ai) - the admin of the Keymaker instance | `orchestrator`, `cornelius` |
+| `sales-rep` | Sam Reyes (sam@keymaker.agency) | `sales-agent` |
+| `delivery-manager` | Noor Haddad (noor@keymaker.agency) | `delivery-agent`, `meeting-notes-bot` |
+| `marketing-lead` | Theo Lindqvist (theo@keymaker.agency) | `marketing-agent` |
+| `orchestrator` | held by the agent itself | `orchestrator` |
+
+The principal sees every deal and is the only signer. A rep works the deals they own. The
+delivery manager owns client state. The marketing lead owns what is published. The brain
+(`cornelius`) serves everyone and commands no one.

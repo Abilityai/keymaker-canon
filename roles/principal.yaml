@@ -1,0 +1,42 @@
+schema_version: 1
+owner: orchestrator
+updated: '2026-10-15'
+verified: '2026-10-15'
+review_by: '2026-11-14'
+file_status: canonical
+source: 'the Keymaker agency - roles written by the principal, stewarded by the orchestrator (2026-10-15)'
+id: principal
+family: ownership
+title: Principal - owner of the agency
+status: active
+defaults_to: null
+mission: 'Decide what the agency sells, at what price, and who may approve what; the only signer; the gate above every rep limit.'
+responsibilities:
+- id: set-prices
+  statement: 'The price list and the rules under it are decided here and changed only by pull request.'
+  decision_rights: decides
+  human: 'Edits domains/pricing/pricing.md and merges the PR; writes the decision file.'
+  agent: 'The orchestrator prepares the proposal and raises the approval; no agent edits the canon.'
+  metrics: []
+  consulted: [sales-rep, delivery-manager]
+  informed: [marketing-lead]
+- id: approve-above-limit
+  statement: 'Any discount above a rep limit, any audit discount, any canon change.'
+  decision_rights: decides
+  human: 'Answers the ask in the Inbox within its expiry.'
+  agent: 'The orchestrator raises one ask with options and an expiry, then waits.'
+  metrics: []
+  consulted: []
+  informed: [sales-rep]
+- id: graduate-lessons
+  statement: 'A note in the brain becomes the agencys position only when a person graduates it.'
+  decision_rights: decides
+  human: 'Runs /graduate-insights in the brain.'
+  agent: 'The brain extracts and labels; it never promotes.'
+  metrics: []
+  consulted: []
+  informed: []
+inputs: [deals, pricing, approvals, lessons-and-judgment, routing-and-receipts]
+outputs: [pricing, approvals, org-context, decisions]
+capabilities: [orchestrator, cornelius]
+credentials: []

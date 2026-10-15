@@ -1,0 +1,34 @@
+schema_version: 1
+owner: orchestrator
+updated: '2026-10-15'
+verified: '2026-10-15'
+review_by: '2026-11-14'
+file_status: canonical
+source: 'the Keymaker agency - roles written by the principal, stewarded by the orchestrator (2026-10-15)'
+id: sales-rep
+family: revenue
+title: Sales rep - owns deals
+status: active
+defaults_to: principal
+mission: 'Run a deal from first call to signature on the fixed pipeline; draft every email; give the standard discount alone, no more.'
+responsibilities:
+- id: run-deals
+  statement: 'Deals move only on evidence through the fixed stages.'
+  decision_rights: decides
+  human: 'Books calls, sends what the desk drafts, moves stages on evidence.'
+  agent: 'sales-agent records, drafts and reviews; never sends.'
+  metrics: []
+  consulted: [delivery-manager]
+  informed: [principal]
+- id: standard-discount
+  statement: 'Up to the limit in domains/approvals/approvals.yaml, as an invoice credit, never a rate cut.'
+  decision_rights: decides
+  human: 'Decides within the limit.'
+  agent: 'sales-agent carries the credit on the deal once a person decides.'
+  metrics: []
+  consulted: []
+  informed: [principal]
+inputs: [leads, pricing, approvals, lessons-and-judgment]
+outputs: [deals]
+capabilities: [sales-agent]
+credentials: []

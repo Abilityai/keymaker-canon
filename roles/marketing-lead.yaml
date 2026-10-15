@@ -1,0 +1,26 @@
+schema_version: 1
+owner: orchestrator
+updated: '2026-10-15'
+verified: '2026-10-15'
+review_by: '2026-11-14'
+file_status: canonical
+source: 'the Keymaker agency - roles written by the principal, stewarded by the orchestrator (2026-10-15)'
+id: marketing-lead
+family: demand
+title: Marketing lead - owns leads and the agency's voice
+status: active
+defaults_to: principal
+mission: 'Content planned, leads counted, one report a week; a qualified lead becomes a deal, never a guess.'
+responsibilities:
+- id: leads
+  statement: 'A lead is handed to Sales when a real person asks for a conversation.'
+  decision_rights: decides
+  human: 'Decides what is published; posts it.'
+  agent: 'marketing-agent plans, counts, writes the brief; never publishes.'
+  metrics: []
+  consulted: [sales-rep]
+  informed: [principal]
+inputs: [pricing, lessons-and-judgment, deals]
+outputs: [leads]
+capabilities: [marketing-agent]
+credentials: []

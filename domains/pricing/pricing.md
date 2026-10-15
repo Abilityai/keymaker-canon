@@ -1,7 +1,17 @@
+---
+owner: steward
+status: canonical
+updated: 2026-10-15
+verified: 2026-10-15
+review_by: 2026-11-14
+tldr: "The Keymaker price list - four offers and the rules under them; the only source of prices for every agent"
+source: "the principal, by pull request; last change domains/decisions/0002-operate-price-2500.md"
+---
+
 # Keymaker price list
 
 The only source of prices for every agent in the agency. Anything not on this list is
-`[NEEDS-PRICE-LIST]`; a price off the list needs the principal (see `operators.yaml`).
+`[NEEDS-PRICE-LIST]`; a price off the list needs the principal (see `domains/approvals/approvals.yaml`).
 Changed only by pull request to this repo. Sample numbers for a fictional agency.
 
 | Offer | What the client gets | Price | Notes |
@@ -15,4 +25,4 @@ Rules: no discounts on the audit; a pilot credit applies only within 90 days; Op
 only after a Build or a Pilot; a discount up to 10% on a Pilot or a Build is the rep's call and is
 given as an invoice credit, never as a lower rate; above 10% the principal decides.
 
-Last decided: `decisions/0002-operate-price-2500.md` (Operate); `decisions/0001-price-list.md` (the list).
+Last decided: `domains/decisions/0002-operate-price-2500.md` (Operate); `domains/decisions/0001-price-list.md` (the list).

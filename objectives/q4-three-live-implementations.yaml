@@ -1,0 +1,24 @@
+schema_version: 1
+owner: role:delivery-manager
+updated: '2026-10-15'
+verified: '2026-10-15'
+review_by: '2026-11-14'
+file_status: canonical
+source: 'the principal, 2026-10-15 - the one objective the agency runs on this quarter; metrics declared in keymaker-delivery template.yaml'
+id: q4-three-live-implementations
+statement: Three client implementations live by the end of Q4 without the portfolio's health falling below green.
+horizon: quarter
+supporting_agents: [delivery-agent, sales-agent, orchestrator]
+status: active
+metrics:
+- name: implementations_live
+  direction: up
+  target: 3
+  by: '2026-12-31'
+  served_by: delivery-agent
+guard_metrics:
+- name: health_avg
+  direction: hold
+  target: 70
+  by: '2026-12-31'
+  served_by: delivery-agent

@@ -1,0 +1,103 @@
+schema_version: 1
+owner: orchestrator
+updated: '2026-10-15'
+verified: '2026-10-15'
+review_by: '2026-11-14'
+file_status: canonical
+source: 'the Keymaker agency, session 4 of the Agent-Native Agency workshop (2026-10-15); grammar: the fleet canon standard (CONVENTIONS.md)'
+steward: orchestrator
+notes: |
+  The map of what lives where. One kind of work, one owner, one person behind it (the person is a
+  role in roles/; who fills it is a Trinity assignment and domains/org-context/ORGANISATION.md).
+  The orchestrator reads this before every route and never invents an owner. `role` names the
+  human seat accountable for the domain; `playbooks` the one-line calls its owner answers to.
+domains:
+- id: leads
+  description: Inbound interest before a conversation has been agreed - forms, replies, referrals
+  owner: marketing-agent
+  role: marketing-lead
+  path: agents/marketing-agent/facts.yaml
+  consumers: [orchestrator, sales-agent]
+  freshness_days: 7
+  playbooks: [weekly-report, content-plan]
+  hands_to: deals
+  source: the marketing desk's marketing/leads.yaml and reports/lead-<slug>.md, published as facts
+- id: deals
+  description: A named company we are selling to, from Discovery Call Booked to Won
+  owner: sales-agent
+  role: sales-rep
+  path: agents/sales-agent/facts.yaml
+  consumers: [orchestrator, delivery-agent, marketing-agent]
+  freshness_days: 7
+  playbooks: [deal, draft-outreach]
+  hands_to: client-projects
+  source: the sales desk's pipeline/deals.yaml and drafts/, published as facts
+- id: pricing
+  description: The price list and the rules under it - the only source of prices
+  owner: steward
+  role: principal
+  path: domains/pricing/pricing.md
+  consumers: [sales-agent, orchestrator]
+  freshness_days: 30
+  source: the principal, by pull request; every change gets a decision file
+- id: approvals
+  description: Who may decide what alone, up to which limit, and who decides above it
+  owner: steward
+  role: principal
+  path: domains/approvals/approvals.yaml
+  consumers: [all]
+  freshness_days: 30
+  source: the principal, by pull request
+- id: client-projects
+  description: Clients after signature - health, implementations, stalls, post-mortems
+  owner: delivery-agent
+  role: delivery-manager
+  path: agents/delivery-agent/facts.yaml
+  consumers: [orchestrator, sales-agent, marketing-agent]
+  freshness_days: 7
+  playbooks: [clients, client-status]
+  source: the delivery desk's clients/clients.yaml and clients/postmortems/, published as facts
+- id: call-notes
+  description: Transcripts turned into decisions, action items and a client summary
+  owner: meeting-notes-bot
+  role: delivery-manager
+  path: agents/meeting-notes-bot/facts.yaml
+  consumers: [delivery-agent, orchestrator]
+  freshness_days: 7
+  playbooks: [summarize]
+  source: the notes bot's notes/, published as facts
+- id: lessons-and-judgment
+  description: What the agency has learned, and advice grounded in it
+  owner: cornelius
+  role: principal
+  path: agents/cornelius/facts.yaml
+  consumers: [all]
+  freshness_days: 30
+  playbooks: [advise, recall, decide, extract-insights]
+  source: the brain's vault; a person graduates a note before it is the agency's position
+- id: routing-and-receipts
+  description: Who owns what, what is in flight, what waits on a person
+  owner: orchestrator
+  role: principal
+  path: agents/orchestrator/facts.yaml
+  consumers: [all]
+  freshness_days: 7
+  playbooks: [route, status, escalate, canon-change, map, open-loops]
+  source: the orchestrator's ledger, published as facts
+- id: org-context
+  description: The people, the roles they fill and the agents that serve them, in plain words
+  owner: steward
+  role: principal
+  path: domains/org-context/ORGANISATION.md
+  consumers: [all]
+  freshness_days: 30
+  source: the principal, by pull request
+- id: decisions
+  description: Why the canon is the way it is - one short file per decision, append-only
+  owner: steward
+  role: principal
+  path: domains/decisions/
+  consumers: [all]
+  freshness_days: 30
+  source: the principal, one file per ruling
+unmatched: ask the principal
