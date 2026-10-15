@@ -1,7 +1,9 @@
 # system.yaml - the whole Keymaker agency as one Trinity SystemManifest.
 # `deploy_system` creates the agents as keymaker-<name> on any Trinity 1.0 instance.
 # Edges are explicit (not the orchestrator-workers preset, which would clear the desks' own
-# edges to the brain). Tags draw the org chart on the Network view.
+# edges to the brain). `reports-to-*` and `dept-*` tags are human-only: a manifest may not set
+# them - add `reports-to-orchestrator` to each desk on the Tags panel after deploy, and the
+# Network view draws the org chart.
 name: keymaker
 description: Keymaker - a fictional automation agency. Four desks, one brain, one orchestrator.
 agents:
@@ -12,19 +14,19 @@ agents:
   sales:
     template: github:Abilityai/keymaker-sales
     folders: {expose: true, consume: true}
-    tags: [keymaker, reports-to-orchestrator]
+    tags: [keymaker]
   delivery:
     template: github:Abilityai/keymaker-delivery
     folders: {expose: true, consume: true}
-    tags: [keymaker, reports-to-orchestrator]
+    tags: [keymaker]
   marketing:
     template: github:Abilityai/keymaker-marketing
     folders: {expose: true, consume: true}
-    tags: [keymaker, reports-to-orchestrator]
+    tags: [keymaker]
   notes:
     template: github:Abilityai/keymaker-meeting-notes-bot
     folders: {expose: true, consume: true}
-    tags: [keymaker, reports-to-orchestrator]
+    tags: [keymaker]
   cornelius:
     template: github:Abilityai/cornelius
     resources: {cpu: "2", memory: "4g"}
