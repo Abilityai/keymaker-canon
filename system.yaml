@@ -1,0 +1,42 @@
+# system.yaml - the whole Keymaker agency as one Trinity SystemManifest.
+# `deploy_system` creates the agents as keymaker-<name> on any Trinity 1.0 instance.
+# Edges are explicit (not the orchestrator-workers preset, which would clear the desks' own
+# edges to the brain). Tags draw the org chart on the Network view.
+name: keymaker
+description: Keymaker - a fictional automation agency. Four desks, one brain, one orchestrator.
+agents:
+  orchestrator:
+    template: github:Abilityai/keymaker-orchestrator
+    folders: {expose: true, consume: true}
+    tags: [keymaker]
+  sales:
+    template: github:Abilityai/keymaker-sales
+    folders: {expose: true, consume: true}
+    tags: [keymaker, reports-to-orchestrator]
+  delivery:
+    template: github:Abilityai/keymaker-delivery
+    folders: {expose: true, consume: true}
+    tags: [keymaker, reports-to-orchestrator]
+  marketing:
+    template: github:Abilityai/keymaker-marketing
+    folders: {expose: true, consume: true}
+    tags: [keymaker, reports-to-orchestrator]
+  notes:
+    template: github:Abilityai/keymaker-meeting-notes-bot
+    folders: {expose: true, consume: true}
+    tags: [keymaker, reports-to-orchestrator]
+  cornelius:
+    template: github:Abilityai/cornelius
+    resources: {cpu: "2", memory: "4g"}
+    folders: {expose: true, consume: true}
+    tags: [keymaker]
+permissions:
+  explicit:
+    orchestrator: [sales, delivery, marketing, notes, cornelius]
+    sales: [delivery, marketing, notes, cornelius]
+    delivery: [sales, marketing, cornelius]
+    marketing: [sales, delivery, cornelius]
+    notes: [sales, delivery, marketing, cornelius]
+    cornelius: [sales, delivery, marketing]
+# After deploy: edit owners.yaml so `agent:` carries the keymaker-<name> names this manifest
+# creates, and run /first-run on the brain.

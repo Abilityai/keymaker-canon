@@ -1,0 +1,51 @@
+# flows.yaml - how information moves in the agency, and the gate on each movement.
+# Five flows. The orchestrator carries all five and owns none of them.
+#
+# Gate vocabulary (fixed - a flow resolves to exactly one):
+#   none            write freely
+#   log             write, and leave a receipt (an execution id, a file, a ledger row)
+#   human-approval  a person approves before anything changes; the agent prepares, then waits
+version: 1
+flows:
+  - id: decisions-down
+    from: people
+    to: every agent
+    carries: the routing map, the approval limits, the price list, the operators
+    how: "canon files; each agent reads its canon/ clone at the start of a run and before every route"
+    gate: human-approval       # a pull request to this repo, approved by the person operators.yaml names
+    never: an agent editing the canon; an agent quoting it from memory
+
+  - id: facts-up
+    from: the desks (sales, delivery, marketing, notes bot)
+    to: their own files, then the orchestrator's ledger, then a person in the morning brief
+    carries: pipeline state, client health, leads by channel, meeting notes
+    how: "each desk writes only the files it owns; the orchestrator reads them and reports, with receipts"
+    gate: log
+    never: a second agent writing a desk's file; a number typed by hand into a report
+
+  - id: lessons-through-the-brain
+    from: the desks
+    to: the brain (cornelius), then back to the desks and the orchestrator as judgment
+    carries: "post-mortems, outcomes, patterns; back: advice with its sources and labels"
+    how: '/extract-insights up; /advise, /recall, /decide down; answers relayed with their labels'
+    gate: human-approval       # a person graduates a note before it becomes the agency's position
+    never: the brain commanding a desk; a desk reporting the brain's inference as the agency's view
+
+  - id: requests-across
+    from: the orchestrator
+    to: the one owner owners.yaml names
+    carries: one request, as a one-line playbook call
+    how: "chat_with_agent, parallel, async where the work is long; the execution id is the receipt"
+    gate: log                  # no receipt, no hand-off
+    never: the orchestrator doing the work itself; two owners for one request; a re-send on silence
+
+  - id: escalations
+    from: any agent
+    to: the person operators.yaml names for that action
+    carries: "one decision, the options, the consequence of waiting, a deadline"
+    how: "ask_operator (approval or question); the agent then ends its turn and waits"
+    gate: human-approval
+    classes:
+      now: [money above a rep's limit, a client at risk, anything irreversible, security]
+      brief: [everything else, batched into the morning brief]
+    never: an ask with no named person; an ask with no expiry; the same ask twice
