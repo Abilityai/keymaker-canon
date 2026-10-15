@@ -23,7 +23,7 @@ to start your own.
 | `flows.yaml` | the information flows: decisions down, facts up, lessons through the brain, requests across, escalations - and the gate on each | the orchestrator; people, when they wonder "how does X get to Y?" |
 | `decisions/` | the decision log, one short file per decision, append-only | anyone asking "why is it like this?" |
 | `proposals/` | changes an agent has prepared and a person has not yet approved | the approver named in each proposal |
-| `system.yaml` | the whole agency as one Trinity manifest: six agents, their edges, their tags | `deploy_system`, to rebuild the agency on any Trinity |
+| `system.yaml` | the whole agency as one Trinity manifest: six agents, their edges, their tags | `deploy_system`, to rebuild the agency on a fresh Trinity instance |
 
 Rules in [CONVENTIONS.md](CONVENTIONS.md).
 
@@ -62,4 +62,5 @@ gate vocabulary, is in `flows.yaml`.
 
 ## Licence
 
-Apache 2.0. Fictional company; nothing here is real.
+Apache 2.0. Keymaker is a fictional agency: no real clients, deals or money. The operators are the
+workshop's own people, named so the approval chain resolves to someone who can answer.

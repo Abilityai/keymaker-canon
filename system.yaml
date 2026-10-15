@@ -1,5 +1,8 @@
 # system.yaml - the whole Keymaker agency as one Trinity SystemManifest.
-# `deploy_system` creates the agents as keymaker-<name> on any Trinity 1.0 instance.
+# `deploy_system` creates the agents as keymaker-<name> on a FRESH instance (1.0 release candidate
+# or later). On an instance that already runs the desks under other names, do not deploy this -
+# you would get a second set, including a second brain; grant the orchestrator its edges on the
+# Access tab instead.
 # Edges are explicit (not the orchestrator-workers preset, which would clear the desks' own
 # edges to the brain). `reports-to-*` and `dept-*` tags are human-only: a manifest may not set
 # them - add `reports-to-orchestrator` to each desk on the Tags panel after deploy, and the
