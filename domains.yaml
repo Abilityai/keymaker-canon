@@ -22,6 +22,15 @@ domains:
   playbooks: [intake]
   hands_to: deals
   source: keymaker.agency/start -> issue -> signed webhook to the orchestrator's [intake] schedule (decision 0003)
+- id: website
+  description: keymaker.agency - pages, copy, the request form; changed by pull request, merged by a person (a merge is a production deploy)
+  owner: website
+  role: marketing-lead
+  path: agents/website/facts.yaml
+  consumers: [orchestrator, marketing-agent]
+  freshness_days: 30
+  playbooks: []
+  source: github.com/Keymaker-Agency/keymaker-website; prices rendered from domains/pricing/pricing.md at build (decision 0003)
 - id: leads
   description: Inbound interest before anyone asked to talk - newsletter sign-ups, downloads, replies to content, referrals with no request yet
   owner: marketing-agent

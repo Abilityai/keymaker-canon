@@ -21,7 +21,7 @@ so a person can read it.
 | `principal` | Eugene Vyborov (eugene@ability.ai) - the admin of the Keymaker instance | `orchestrator`, `cornelius` |
 | `sales-rep` | Sam Reyes (sam@keymaker.agency) | `sales` |
 | `delivery-manager` | Noor Haddad (noor@keymaker.agency) | `delivery-agent`, `meeting-notes-bot` |
-| `marketing-lead` | Theo Lindqvist (theo@keymaker.agency) | `marketing-agent` |
+| `marketing-lead` | Theo Lindqvist (theo@keymaker.agency) | `marketing-agent`, `website` |
 | `orchestrator` | held by the agent itself | `orchestrator` |
 
 The principal sees every deal and is the only signer. A rep works the deals they own. The
