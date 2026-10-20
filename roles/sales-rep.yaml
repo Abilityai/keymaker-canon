@@ -16,7 +16,7 @@ responsibilities:
   statement: 'Deals move only on evidence through the fixed stages.'
   decision_rights: decides
   human: 'Books calls, sends what the desk drafts, moves stages on evidence.'
-  agent: 'sales-agent records, drafts and reviews; never sends.'
+  agent: 'sales records, drafts and reviews; never sends.'
   metrics: []
   consulted: [delivery-manager]
   informed: [principal]
@@ -24,11 +24,11 @@ responsibilities:
   statement: 'Up to the limit in domains/approvals/approvals.yaml, as an invoice credit, never a rate cut.'
   decision_rights: decides
   human: 'Decides within the limit.'
-  agent: 'sales-agent carries the credit on the deal once a person decides.'
+  agent: 'sales carries the credit on the deal once a person decides.'
   metrics: []
   consulted: []
   informed: [principal]
 inputs: [leads, pricing, approvals, lessons-and-judgment]
 outputs: [deals]
-capabilities: [sales-agent]
+capabilities: [sales]
 credentials: []

@@ -19,7 +19,7 @@ so a person can read it.
 | Role (`roles/`) | Filled by | Agents that serve the seat |
 |---|---|---|
 | `principal` | Eugene Vyborov (eugene@ability.ai) - the admin of the Keymaker instance | `orchestrator`, `cornelius` |
-| `sales-rep` | Sam Reyes (sam@keymaker.agency) | `sales-agent` |
+| `sales-rep` | Sam Reyes (sam@keymaker.agency) | `sales` |
 | `delivery-manager` | Noor Haddad (noor@keymaker.agency) | `delivery-agent`, `meeting-notes-bot` |
 | `marketing-lead` | Theo Lindqvist (theo@keymaker.agency) | `marketing-agent` |
 | `orchestrator` | held by the agent itself | `orchestrator` |

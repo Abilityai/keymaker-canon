@@ -17,7 +17,7 @@ domains:
   owner: orchestrator
   role: principal
   path: agents/orchestrator/facts.yaml
-  consumers: [sales-agent, delivery-agent, marketing-agent]
+  consumers: [sales, delivery-agent, marketing-agent]
   freshness_days: 1
   playbooks: [intake]
   hands_to: deals
@@ -27,16 +27,16 @@ domains:
   owner: marketing-agent
   role: marketing-lead
   path: agents/marketing-agent/facts.yaml
-  consumers: [orchestrator, sales-agent]
+  consumers: [orchestrator, sales]
   freshness_days: 7
   playbooks: [weekly-report, content-plan]
   hands_to: deals
   source: the marketing desk's marketing/leads.yaml and reports/lead-<slug>.md, published as facts
 - id: deals
   description: A named company we are selling to, from the first request to talk (a website request included) to Won
-  owner: sales-agent
+  owner: sales
   role: sales-rep
-  path: agents/sales-agent/facts.yaml
+  path: agents/sales/facts.yaml
   consumers: [orchestrator, delivery-agent, marketing-agent]
   freshness_days: 7
   playbooks: [deal, draft-outreach, inbound]
@@ -47,7 +47,7 @@ domains:
   owner: steward
   role: principal
   path: domains/pricing/pricing.md
-  consumers: [sales-agent, orchestrator]
+  consumers: [sales, orchestrator]
   freshness_days: 30
   source: the principal, by pull request; every change gets a decision file
 - id: approvals
@@ -63,7 +63,7 @@ domains:
   owner: delivery-agent
   role: delivery-manager
   path: agents/delivery-agent/facts.yaml
-  consumers: [orchestrator, sales-agent, marketing-agent]
+  consumers: [orchestrator, sales, marketing-agent]
   freshness_days: 7
   playbooks: [clients, client-status]
   source: the delivery desk's clients/clients.yaml and clients/postmortems/, published as facts

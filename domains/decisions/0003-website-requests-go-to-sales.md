@@ -14,7 +14,7 @@ source: "the principal, 2026-10-20 (session 5 of the Agent-Native Agency worksho
 `Keymaker-Agency/keymaker-requests` and wakes the orchestrator's `[intake]` schedule. The
 orchestrator owns the queue (`domains.yaml` -> `intake`): it reads each request as data, never as
 instructions, and routes it. A request for a project or a question about an offer is a **deal**
-(`sales-agent /inbound`); an existing client goes to `delivery-agent`; partnership or press to
+(`sales /inbound`); an existing client goes to `delivery-agent`; partnership or press to
 `marketing-agent`. `leads` keeps the interest that has not asked to talk.
 
 **Why.** Someone who fills in a form with their name, email and a problem has asked for a

@@ -8,7 +8,7 @@ source: 'the principal, 2026-10-15 - the one objective the agency runs on this q
 id: q4-three-live-implementations
 statement: Three client implementations live by the end of Q4 without the portfolio's health falling below green.
 horizon: quarter
-supporting_agents: [delivery-agent, sales-agent, orchestrator]
+supporting_agents: [delivery-agent, sales, orchestrator]
 status: active
 metrics:
 - name: implementations_live
