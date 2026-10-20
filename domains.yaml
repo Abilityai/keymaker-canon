@@ -1,7 +1,7 @@
 schema_version: 1
 owner: orchestrator
-updated: '2026-10-15'
-verified: '2026-10-15'
+updated: '2026-10-20'
+verified: '2026-10-20'
 review_by: '2026-11-14'
 file_status: canonical
 source: 'the Keymaker agency, session 4 of the Agent-Native Agency workshop (2026-10-15); grammar: the fleet canon standard (CONVENTIONS.md)'
@@ -12,8 +12,18 @@ notes: |
   The orchestrator reads this before every route and never invents an owner. `role` names the
   human seat accountable for the domain; `playbooks` the one-line calls its owner answers to.
 domains:
+- id: intake
+  description: Requests from the website form - the private queue Keymaker-Agency/keymaker-requests, one issue per request; triaged and routed, never answered here
+  owner: orchestrator
+  role: principal
+  path: agents/orchestrator/facts.yaml
+  consumers: [sales-agent, delivery-agent, marketing-agent]
+  freshness_days: 1
+  playbooks: [intake]
+  hands_to: deals
+  source: keymaker.agency/start -> issue -> signed webhook to the orchestrator's [intake] schedule (decision 0003)
 - id: leads
-  description: Inbound interest before a conversation has been agreed - forms, replies, referrals
+  description: Inbound interest before anyone asked to talk - newsletter sign-ups, downloads, replies to content, referrals with no request yet
   owner: marketing-agent
   role: marketing-lead
   path: agents/marketing-agent/facts.yaml
@@ -23,13 +33,13 @@ domains:
   hands_to: deals
   source: the marketing desk's marketing/leads.yaml and reports/lead-<slug>.md, published as facts
 - id: deals
-  description: A named company we are selling to, from Discovery Call Booked to Won
+  description: A named company we are selling to, from the first request to talk (a website request included) to Won
   owner: sales-agent
   role: sales-rep
   path: agents/sales-agent/facts.yaml
   consumers: [orchestrator, delivery-agent, marketing-agent]
   freshness_days: 7
-  playbooks: [deal, draft-outreach]
+  playbooks: [deal, draft-outreach, inbound]
   hands_to: client-projects
   source: the sales desk's pipeline/deals.yaml and drafts/, published as facts
 - id: pricing
