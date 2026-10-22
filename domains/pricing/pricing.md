@@ -21,6 +21,8 @@ Changed only by pull request to this repo. Sample numbers for a fictional agency
 | Build | The agency system: departments, shared brain, orchestrator, workspace for their team | from $40,000 | scoped per proposal |
 | Operate | We run the instance with them: monitoring, improvements, new playbooks | $2,500 / month | 3-month minimum |
 
+Every offer is described for our client in `domains/market/who-we-serve.md` (decision 0005).
+
 Rules: no discounts on the audit; a pilot credit applies only within 90 days; Operate is quoted
 only after a Build or a Pilot; a discount up to 10% on a Pilot or a Build is the rep's call and is
 given as an invoice credit, never as a lower rate; above 10% the principal decides.
