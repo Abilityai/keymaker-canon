@@ -1,7 +1,7 @@
 schema_version: 1
 owner: orchestrator
-updated: '2026-10-20'
-verified: '2026-10-20'
+updated: '2026-10-22'
+verified: '2026-10-22'
 review_by: '2026-11-14'
 file_status: canonical
 source: 'the Keymaker agency, session 4 of the Agent-Native Agency workshop (2026-10-15); grammar: the fleet canon standard (CONVENTIONS.md)'
@@ -51,6 +51,14 @@ domains:
   playbooks: [deal, draft-outreach, inbound]
   hands_to: client-projects
   source: the sales desk's pipeline/deals.yaml and drafts/, published as facts
+- id: market
+  description: Who Keymaker serves - specialist recruiting firms of 20-100 people; what they run, what hurts, what each offer means for them, how to qualify
+  owner: steward
+  role: principal
+  path: domains/market/who-we-serve.md
+  consumers: [sales, marketing-agent, website, orchestrator]
+  freshness_days: 30
+  source: the principal, by pull request; decision 0005
 - id: pricing
   description: The price list and the rules under it - the only source of prices
   owner: steward
