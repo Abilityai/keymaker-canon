@@ -46,7 +46,7 @@ domains:
   owner: sales
   role: sales-rep
   path: agents/sales/facts.yaml
-  consumers: [orchestrator, delivery-agent, marketing-agent, finance]
+  consumers: [orchestrator, delivery-agent, marketing-agent, finance, prospector]
   freshness_days: 7
   playbooks: [deal, draft-outreach, inbound]
   hands_to: client-projects
@@ -56,7 +56,7 @@ domains:
   owner: steward
   role: principal
   path: domains/market/who-we-serve.md
-  consumers: [sales, marketing-agent, website, orchestrator]
+  consumers: [sales, marketing-agent, website, orchestrator, prospector]
   freshness_days: 30
   source: the principal, by pull request; decision 0005
 - id: pricing
@@ -136,4 +136,14 @@ domains:
   freshness_days: 7
   playbooks: [invoice, payments, overdue]
   source: the finance desk's ledger/invoices.yaml and invoices/, published as facts; opened by decision 0006
+- id: prospects
+  description: Specialist recruiting firms we have not spoken to yet - found from their public footprint, qualified against who-we-serve (two of three signals), one drafted first line each; the rep decides who is contacted and sends it; no personal data is stored, no list is bought; a firm becomes a deal only when Sales opens one
+  owner: prospector
+  role: sales-rep
+  path: agents/prospector/facts.yaml
+  consumers: [sales, orchestrator, marketing-agent]
+  freshness_days: 7
+  playbooks: [prospect]
+  hands_to: deals
+  source: the prospecting desk's prospects/prospects.yaml and drafts/, published as facts; opened by decision 0007
 unmatched: ask the principal

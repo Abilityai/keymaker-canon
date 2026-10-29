@@ -4,7 +4,7 @@ updated: '2026-10-29'
 verified: '2026-10-29'
 review_by: '2026-11-28'
 file_status: canonical
-source: 'the principal, by pull request (2026-10-15; finance entries 2026-10-29, decision 0006); shape: one entry per business action, roles never people'
+source: 'the principal, by pull request (2026-10-15; finance entries 2026-10-29, decision 0006; first-outreach entry 2026-10-29, decision 0007); shape: one entry per business action, roles never people'
 notes: |
   Who may decide what alone, up to which limit, and who decides above it. `decides_alone` and
   `above_limit` are role ids from roles/; who fills a role is a Trinity assignment and
@@ -65,6 +65,11 @@ approvals:
 - action: write off an invoice, extend its terms, or credit it beyond the list rule
   decides_alone: null
   limit: none
+  above_limit: principal
+  expires_after_hours: 72
+- action: contact a company we have not spoken to (first outreach)
+  decides_alone: sales-rep
+  limit: the rep sends from their own mailbox; agents only draft; public sources only, no purchased list, no stored personal email address or phone number
   above_limit: principal
   expires_after_hours: 72
 escalate_now: [money above a rep limit, a client at risk of leaving, anything irreversible, a security question]
