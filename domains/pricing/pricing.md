@@ -20,7 +20,7 @@ Changed only by pull request to this repo. Sample numbers for a fictional agency
 | Pilot | One department on their own Trinity instance: install, two agents, one real workflow live | $12,000 fixed | 4 weeks; credited against a Build |
 | Build | The agency system: departments, shared brain, orchestrator, workspace for their team | from $40,000 | scoped per proposal |
 | Operate | We run the instance with them: monitoring, improvements, new playbooks | $2,500 / month | 3-month minimum |
-| Automation audit - workshop price | The same audit, for attendees of the Agent-Native Agency workshop; paid by card on the Stripe Payment Link | $500 fixed | 3 slots, until 2026-11-30; a payment is a won deal; decision 0008 |
+| Automation audit - introductory price | The same audit at a limited-time price; paid by card on the Stripe Payment Link | $500 fixed | 3 slots, until 2026-11-30; a payment is a won deal; decision 0008 |
 
 Every offer is described for our client in `domains/market/who-we-serve.md` (decision 0005).
 
