@@ -1,10 +1,10 @@
 schema_version: 1
 owner: steward
-updated: '2026-10-15'
-verified: '2026-10-15'
-review_by: '2026-11-14'
+updated: '2026-10-29'
+verified: '2026-10-29'
+review_by: '2026-11-28'
 file_status: canonical
-source: 'the principal, by pull request (2026-10-15); shape: one entry per business action, roles never people'
+source: 'the principal, by pull request (2026-10-15; finance entries 2026-10-29, decision 0006); shape: one entry per business action, roles never people'
 notes: |
   Who may decide what alone, up to which limit, and who decides above it. `decides_alone` and
   `above_limit` are role ids from roles/; who fills a role is a Trinity assignment and
@@ -52,5 +52,20 @@ approvals:
   limit: on the Access tab; no agent can grant an edge
   above_limit: principal
   expires_after_hours: 168
+- action: send an invoice or a payment reminder to a client
+  decides_alone: finance-lead
+  limit: the finance lead presses send on the exact document; agents only draft
+  above_limit: principal
+  expires_after_hours: 72
+- action: record a payment against an invoice
+  decides_alone: finance-lead
+  limit: with a bank reference and a date; an amount that does not match the invoice is a decision, not a record
+  above_limit: principal
+  expires_after_hours: 72
+- action: write off an invoice, extend its terms, or credit it beyond the list rule
+  decides_alone: null
+  limit: none
+  above_limit: principal
+  expires_after_hours: 72
 escalate_now: [money above a rep limit, a client at risk of leaving, anything irreversible, a security question]
 escalate_rule: one ask per decision, with the options and a deadline; then the agent ends its turn and waits

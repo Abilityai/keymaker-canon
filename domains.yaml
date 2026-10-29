@@ -1,8 +1,8 @@
 schema_version: 1
 owner: orchestrator
-updated: '2026-10-22'
-verified: '2026-10-22'
-review_by: '2026-11-14'
+updated: '2026-10-29'
+verified: '2026-10-29'
+review_by: '2026-11-28'
 file_status: canonical
 source: 'the Keymaker agency, session 4 of the Agent-Native Agency workshop (2026-10-15); grammar: the fleet canon standard (CONVENTIONS.md)'
 steward: orchestrator
@@ -46,7 +46,7 @@ domains:
   owner: sales
   role: sales-rep
   path: agents/sales/facts.yaml
-  consumers: [orchestrator, delivery-agent, marketing-agent]
+  consumers: [orchestrator, delivery-agent, marketing-agent, finance]
   freshness_days: 7
   playbooks: [deal, draft-outreach, inbound]
   hands_to: client-projects
@@ -64,7 +64,7 @@ domains:
   owner: steward
   role: principal
   path: domains/pricing/pricing.md
-  consumers: [sales, orchestrator]
+  consumers: [sales, orchestrator, finance]
   freshness_days: 30
   source: the principal, by pull request; every change gets a decision file
 - id: approvals
@@ -80,7 +80,7 @@ domains:
   owner: delivery-agent
   role: delivery-manager
   path: agents/delivery-agent/facts.yaml
-  consumers: [orchestrator, sales, marketing-agent]
+  consumers: [orchestrator, sales, marketing-agent, finance]
   freshness_days: 7
   playbooks: [clients, client-status]
   source: the delivery desk's clients/clients.yaml and clients/postmortems/, published as facts
@@ -127,4 +127,13 @@ domains:
   consumers: [all]
   freshness_days: 30
   source: the principal, one file per ruling
+- id: invoicing
+  description: What the agency is owed and what it was paid - an invoice for every won deal at the list price less an approved credit, payments recorded against a bank reference, late invoices chased on a fixed ladder; nothing reaches a client without the finance lead approving the exact document
+  owner: finance
+  role: finance-lead
+  path: agents/finance/facts.yaml
+  consumers: [orchestrator, sales, delivery-agent]
+  freshness_days: 7
+  playbooks: [invoice, payments, overdue]
+  source: the finance desk's ledger/invoices.yaml and invoices/, published as facts; opened by decision 0006
 unmatched: ask the principal

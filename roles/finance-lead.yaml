@@ -1,0 +1,42 @@
+schema_version: 1
+owner: orchestrator
+updated: '2026-10-29'
+verified: '2026-10-29'
+review_by: '2026-11-28'
+file_status: canonical
+source: 'the Keymaker agency - role written by the principal, stewarded by the orchestrator (2026-10-29, session 6 of the Agent-Native Agency workshop)'
+id: finance-lead
+family: ownership
+title: Finance lead - owns the books
+status: active
+defaults_to: principal
+mission: 'Every won deal is invoiced from the price list, every payment is recorded against a reference, every late invoice is chased on the ladder; nothing reaches a client without this seat approving the exact document.'
+responsibilities:
+- id: invoice-won-deals
+  statement: 'A won deal becomes an invoice at the list price less any credit a person approved on the deal.'
+  decision_rights: decides
+  human: 'Approves each invoice in the Inbox before it leaves; sends by hand when the desk has no sending key.'
+  agent: 'finance drafts the invoice and the covering email from the handoff and the price list; never sends on its own.'
+  metrics: [invoiced_month_usd]
+  consulted: [sales-rep]
+  informed: [principal, delivery-manager]
+- id: record-payments
+  statement: 'A payment is recorded from a bank reference and a date; an amount that does not match the invoice is a decision, not a record.'
+  decision_rights: decides
+  human: 'Gives the desk the reference, the amount and the date.'
+  agent: 'finance records it in the ledger with a confirm; never infers a payment.'
+  metrics: [outstanding_usd, paid_month_usd]
+  consulted: []
+  informed: [sales-rep, delivery-manager]
+- id: chase-overdue
+  statement: 'Late invoices are reminded on a fixed ladder - Day 1, Day 7, Day 14 - and beyond that a person decides.'
+  decision_rights: decides
+  human: 'Approves each reminder; decides what happens after the final notice.'
+  agent: 'finance drafts each reminder in the stage tone, asks Delivery whether the client is at risk before a final notice, and counts a reminder only once it was sent.'
+  metrics: [overdue_invoices]
+  consulted: [delivery-manager]
+  informed: [principal]
+inputs: [deals, client-projects, pricing, approvals, lessons-and-judgment]
+outputs: [invoicing]
+capabilities: [finance]
+credentials: []

@@ -1,11 +1,11 @@
 ---
 owner: steward
 status: canonical
-updated: 2026-10-15
-verified: 2026-10-15
-review_by: 2026-11-14
+updated: 2026-10-29
+verified: 2026-10-29
+review_by: 2026-11-28
 tldr: "Who is in the Keymaker agency, which role each person fills, and which agents serve them - plain words, never the thing the fleet decides on"
-source: "the principal, 2026-10-15; the Trinity assignment is the record, this page is the explanation"
+source: "the principal, 2026-10-15, finance seat 2026-10-29; the Trinity assignment is the record, this page is the explanation"
 ---
 
 # The Keymaker agency - people, roles, agents
@@ -22,8 +22,9 @@ so a person can read it.
 | `sales-rep` | Sam Reyes (sam@keymaker.agency) | `sales` |
 | `delivery-manager` | Noor Haddad (noor@keymaker.agency) | `delivery-agent`, `meeting-notes-bot` |
 | `marketing-lead` | Theo Lindqvist (theo@keymaker.agency) | `marketing-agent`, `website` |
+| `finance-lead` | Eugene Vyborov (eugene@ability.ai) - held by the principal until the agency hires one (decision 0006) | `finance` |
 | `orchestrator` | held by the agent itself | `orchestrator` |
 
 The principal sees every deal and is the only signer. A rep works the deals they own. The
-delivery manager owns client state. The marketing lead owns what is published. The brain
+delivery manager owns client state. The marketing lead owns what is published. The finance lead approves every invoice and reminder before it leaves. The brain
 (`cornelius`) serves everyone and commands no one.
